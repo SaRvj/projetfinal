@@ -1,0 +1,2 @@
+connexion réussie à SQLite
+INSERT INTO station_information (capacity, lat, lon, name, station_id) VALUES (35,48.865983,2.275725,'Benjamin Godard - Victor Hugo',16107)
