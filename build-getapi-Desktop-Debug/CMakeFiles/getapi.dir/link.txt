@@ -1,0 +1,1 @@
+/usr/bin/gcc -g CMakeFiles/getapi.dir/main.c.o -o getapi 

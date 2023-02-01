@@ -11,7 +11,7 @@ response = requests.get("https://opendata.paris.fr/api/records/1.0/search/?datas
 contenu = response.json()
 
 
-conn = sqlite3.connect('/home/ajc/projetfinal/velibdata.db')
+conn = sqlite3.connect('/home/satrana/velibdata.db')
 cur = conn.cursor()
 print("connexion réussie à SQLite")
  

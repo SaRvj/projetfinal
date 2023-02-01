@@ -4,10 +4,10 @@
 
 
 typedef int (*sqlite3_callback)(
-   void*,    /* Data provided in the 4th argument of sqlite3_exec() */
-   int,      /* The number of columns in row */
-   char**,   /* An array of strings representing fields in the row */
-   char**    /* An array of strings representing column names */
+   void*,    /* données fournies dans la 4e argument de sqlite3_exe() */
+   int,      /* le nombre de colonne dans la ligne */
+   char**,   /* un tableau de chaînes représentant les champs de la ligne */
+   char**    /* un tableau de chaînes représentant les noms de colonnes */
 );
 
 static int callback(void *data, int argc, char **argv, char **azColName){
@@ -22,34 +22,36 @@ static int callback(void *data, int argc, char **argv, char **azColName){
    return 0;
 }
 
-int main(int argc, char* argv[]) {
+//int argc, char* argv[]
+int main() {
    sqlite3 *db;
    char *zErrMsg = 0;
    int rc;
    char *sql;
-   const char* data = "Callback function called";
+   const char* data = "fonction callback appelée : données de station_status";
 
-   /* Open database */
+   /* ouvrir base de données */
    rc = sqlite3_open("/home/ajc/projetfinal/velibdata.db", &db);
 
    if( rc ) {
-      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+      fprintf(stderr, "base de données ne peut s'ouvrir: %s\n", sqlite3_errmsg(db));
       return(0);
    } else {
-      fprintf(stderr, "Opened database successfully\n");
+      fprintf(stderr, "base de données ouvert avec succès\n");
    }
 
    /* Create SQL statement */
-   sql = "SELECT * from station_status";
+   sql = "SELECT * from station_status WHERE station_id = 15202";
 
-   /* Execute SQL statement */
+
+   /* exécuter une instruction sql */
    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
 
    if( rc != SQLITE_OK ) {
-      fprintf(stderr, "SQL error: %s\n", zErrMsg);
+      fprintf(stderr, "erreur sql: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
    } else {
-      fprintf(stdout, "Operation done successfully\n");
+      fprintf(stdout, "instruction exécutée\n");
    }
    sqlite3_close(db);
    return 0;
