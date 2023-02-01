@@ -1,0 +1,1 @@
+satrana 1000 satrana 1000 =ajc /home/ajc /bin/sh -satrana 
