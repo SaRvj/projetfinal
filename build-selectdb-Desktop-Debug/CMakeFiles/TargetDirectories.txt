@@ -1,0 +1,3 @@
+/home/ajc/projetfinal/build-selectdb-Desktop-Debug/CMakeFiles/selectdb.dir
+/home/ajc/projetfinal/build-selectdb-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/ajc/projetfinal/build-selectdb-Desktop-Debug/CMakeFiles/rebuild_cache.dir
