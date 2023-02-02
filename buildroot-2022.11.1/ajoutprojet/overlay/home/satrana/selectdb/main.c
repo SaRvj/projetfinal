@@ -41,7 +41,8 @@ int main() {
    }
 
    /* Create SQL statement */
-   sql = "SELECT * from station_status WHERE station_id = 15202";
+   //sql = "SELECT * from station_status WHERE station_id = 15202";
+   sql = "SELECT * from station_status INNER JOIN station_information ON station_status.station_id = station_information.station_id";
 
 
    /* exécuter une instruction sql */
