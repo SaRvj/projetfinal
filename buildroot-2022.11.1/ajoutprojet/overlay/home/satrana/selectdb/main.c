@@ -28,10 +28,10 @@ int main() {
    char *zErrMsg = 0;
    int rc;
    char *sql;
-   const char* data = "fonction callback appelée : données des stations";
+   const char* data = "fonction callback appelée : données de station_status";
 
    /* ouvrir base de données */
-   rc = sqlite3_open("/home/ajc/projetfinal/velibdata.db", &db);
+   rc = sqlite3_open("/home/satrana/velibdata.db", &db);
 
    if( rc ) {
       fprintf(stderr, "base de données ne peut s'ouvrir: %s\n", sqlite3_errmsg(db));
@@ -41,8 +41,7 @@ int main() {
    }
 
    /* Create SQL statement */
-   //sql = "SELECT * from station_status WHERE station_id = 15202";
-   sql = "SELECT * from station_status LEFT JOIN station_information ON station_status.station_id = station_information.station_id";
+   sql = "SELECT * from station_status WHERE station_id = 15202";
 
 
    /* exécuter une instruction sql */
