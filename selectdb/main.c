@@ -3,6 +3,7 @@
 #include <sqlite3.h>
 
 
+/* classe de stockage */
 typedef int (*sqlite3_callback)(
    void*,    /* données fournies */
    int,      /* le nombre de colonne dans la ligne */
@@ -10,10 +11,13 @@ typedef int (*sqlite3_callback)(
    char**    /* un tableau de chaînes représentant les noms de colonnes */
 );
 
-static int callback(void *data, int argc, char **argv, char **azColName){
+
+static int callback(void *data, int argc, char **argv, char **azColName){  //avadika tableau à deux dimensions **
    int i;
    fprintf(stderr, "%s: ", (const char*)data);
-
+   
+   
+   
    for(i = 0; i<argc; i++){
       printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
    }
@@ -41,9 +45,10 @@ int main() {
    }
 
    /* Create SQL statement */
-   //sql = "SELECT * from station_status WHERE station_id = 15202";
-   sql = "SELECT * from station_status INNER JOIN station_information ON station_status.station_id = station_information.station_id";
-
+   //sql = "SELECT * from station_status WHERE station_id = 9020 ORDER BY last_reported DESC LIMIT 200";
+   //sql = "SELECT * from station_status INNER JOIN station_information ON station_status.station_id = station_information.station_id";
+   sql = "SELECT * FROM (SELECT * FROM station_status INNER JOIN station_information ON station_status.station_id = station_information.station_id) ORDER BY last_reported DESC LIMIT 100";
+   
 
    /* exécuter une instruction sql */
    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
@@ -55,5 +60,5 @@ int main() {
       fprintf(stdout, "instruction exécutée\n");
    }
    sqlite3_close(db);
-   return 0;
+   return 0;	
 }
