@@ -18,7 +18,7 @@ int callback(void *NotUsed, int argc, char **argv,char **azColName) {
 int main() {
     sqlite3 *db;
     char *err_msg = 0;
-        int retenirvalue = sqlite3_open("/home/ajc/projetfinal/velibdatacopie.db", &db);
+        int retenirvalue = sqlite3_open("/home/ajc/projetfinal/velibdata.db", &db);
         if (retenirvalue != SQLITE_OK) {
             fprintf(stderr, "Cannot open database: %s\n", sqlite3_errmsg(db));
             sqlite3_close(db);
@@ -168,7 +168,7 @@ int main() {
     FILE *pngout, *jpegout;
     /* Declare color indexes */
     int cyan, navy, red, green, black, white, yellow;
-    int abscisse_x=1400;
+    int abscisse_x=1800;
     int ordonnee_y=900;
 
 
@@ -215,7 +215,7 @@ int main() {
 
     }
     gdImageLine(im, 100, 500, 100, 100, white);
-    gdImageLine(im, 100, 500, 1350, 500, white);
+    gdImageLine(im, 100, 500, 1550, 500, white);
 
     gdImageString(im, gdFontGetLarge(), 700, 100, name[0], white );
     gdImageString(im, gdFontGetLarge(), 700, 200, "Nombre de bornettes disponible", white );
@@ -247,7 +247,7 @@ int main() {
     FILE *pngout2, *jpegout2;
     /* Declare color indexes */
     int cyan2, navy2, red2, green2, black2, white2, yellow2;
-    int abscisse2_x=1400;
+    int abscisse2_x=1800;
     int ordonnee2_y=900;
 
 
@@ -274,7 +274,7 @@ int main() {
 
     }
     gdImageLine(im2, 100, 500, 100, 100, white2);
-    gdImageLine(im2, 100, 500, 1350, 500, white2);
+    gdImageLine(im2, 100, 500, 1550, 500, white2);
 
     gdImageString(im2, gdFontGetLarge(), 700, 100, name[0], white2 );
     gdImageString(im2, gdFontGetLarge(), 700, 200, "Nombre de vélos disponibles", white );
@@ -290,7 +290,7 @@ int main() {
 
     gdImagePtr im3;
     FILE *in;
-    in = fopen("/home/ajc/essaiessai/testimage2/icon.png", "rb");
+    in = fopen("/home/ajc/projetfinal/icon.png", "rb");
     im3 = gdImageCreateFromPng(in);
     gdImageCopyResized(im2, im3,150,200,0,0,300,140,180,140);
     /* Open a file for writing. "wb" means "write binary", important under MSDOS, harmless under Unix. */
