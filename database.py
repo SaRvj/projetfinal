@@ -17,7 +17,6 @@ print("connexion réussie à SQLite")
  
 for i in range(len(contenu['records'])):
     sql = ("INSERT INTO station_information (capacity, lat, lon, name, station_id) VALUES ("+str(contenu['records'][i]['fields']['capacity'])+","+str(contenu['records'][i]['fields']['coordonnees_geo'][0])+","+str(contenu['records'][i]['fields']['coordonnees_geo'][1])+",'"+str(contenu['records'][i]['fields']['name'])+"',"+str(contenu['records'][i]['fields']['stationcode'])+")")
-    print(sql)
  
     count = cur.execute(sql)
     print("enregistrement inséré dans table station_information")
