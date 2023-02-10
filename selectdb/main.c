@@ -1,16 +1,22 @@
 #include "gd.h"
 #include <string.h>
 #include <stdio.h>
+#include <math.h>
 #include <sqlite3.h>
 #include <gdfonts.h>
 #include <gdfontl.h>
 #include <gdfontg.h>
 #include <stdio.h>
 
-int callback(void *NotUsed, int argc, char **argv,char **azColName) {
+/*
+** Connexion à la base de donnée velibdata.db
+** Récupération des données
+** Utilisation des données en paramètre dans gd
+**
+*/
+
+int callback(void *NotUsed, int argc, char **argv, char **azColName) {
     NotUsed = 0;
-    /*for (int i = 0; i < argc; i++) {
-    }*/
     printf("\n");
     return 0;
 }
@@ -24,8 +30,8 @@ int main() {
             sqlite3_close(db);
             return 1;
         }
-        char *sql = "SELECT name, capacity, is_renting, is_returning,numDocsAvailable,num_bikes_available,num_bikes_available_ebike, num_bikes_available_mechanical, last_reported FROM (SELECT * FROM station_status LEFT JOIN station_information ON station_status.station_id = station_information.station_id) WHERE station_id = 13007 GROUP BY last_reported"; //LIMIT 1500
-
+        char *sql = "SELECT name, capacity, is_renting, is_returning,numDocsAvailable,num_bikes_available,num_bikes_available_ebike, num_bikes_available_mechanical, last_reported FROM (SELECT * FROM station_status LEFT JOIN station_information ON station_status.station_id = station_information.station_id) WHERE station_id = 13007 GROUP BY last_reported"; 
+        
         retenirvalue = sqlite3_exec(db, sql, callback, 0, &err_msg);
         if (retenirvalue != SQLITE_OK ) {
             fprintf(stderr, "Failed to select data\n");
@@ -34,14 +40,16 @@ int main() {
             sqlite3_close(db);
             return 1;
         }
+
         //créer une variable de type "int" pour stocker le code de retour pour chaque appel : retenirvalue
         char   *query;
+
         //préparer l'accès aux tables
         sqlite3_stmt *stmt;
-        //lire le contenu de la table
 
-        query = "SELECT name, capacity, is_renting, is_returning,numDocsAvailable,num_bikes_available,num_bikes_available_ebike, num_bikes_available_mechanical, last_reported FROM (SELECT * FROM station_status LEFT JOIN station_information ON station_status.station_id = station_information.station_id) WHERE station_id = 13007 GROUP BY last_reported"; //LIMIT 1500
-        //query = "SELECT name, capacity, is_renting, is_returning,numDocsAvailable,num_bikes_available,num_bikes_available_ebike, num_bikes_available_mechanical, last_reported FROM station_status INNER JOIN station_information ON station_status.station_id = station_information.station_id WHERE station_status.station_id = 5110";
+        //lire le contenu de la table
+        query = "SELECT name, capacity, is_renting, is_returning,numDocsAvailable,num_bikes_available,num_bikes_available_ebike, num_bikes_available_mechanical, last_reported FROM (SELECT * FROM station_status LEFT JOIN station_information ON station_status.station_id = station_information.station_id) WHERE station_id = 13007 GROUP BY last_reported";
+
         retenirvalue = sqlite3_prepare_v2(db,query,-1,&stmt,0);
         if(retenirvalue)
         {
@@ -51,12 +59,14 @@ int main() {
         //lire le nombre de colonnes récupérées
         int cols = sqlite3_column_count(stmt);
         printf("%d \n", cols);
+
         //écrire de l'entête des colonnes
         int col;
         for(col=0 ; col<cols;col++)
            printf("%s| ",sqlite3_column_name(stmt,col));
            printf("\n");
-        //écrire   des données
+
+        //écrire   des données:
         //initialiser nombre de lignes = Nbr_lignes
         int Nbr_lignes = 0;
         while(1)
@@ -65,7 +75,7 @@ int main() {
             retenirvalue = sqlite3_step(stmt);
             if(retenirvalue == SQLITE_ROW)
             {
-                //la ligne contient des données
+                //ici, la ligne contient des données
                 int   col;
                 for(col=0 ; col<cols;col++)
                 {
@@ -78,13 +88,12 @@ int main() {
              }
              else if(retenirvalue == SQLITE_DONE)
              {
-                 //plus de données
                  printf("Fin de la table\n");
                  break;
              }
              else
              {
-                 //erreur
+                 //renvoyer une erreur
                  printf("Erreur lors de l'accès aux données\n");
                  return -1;
              }
@@ -101,6 +110,7 @@ int main() {
         char is_returning[200][Nbr_lignes];
         int num_bikes_available_mechanical[Nbr_lignes];
         int num_lignes = 0; //numero de ligne
+
         //écrire les données
         while(1)
         {
@@ -108,8 +118,8 @@ int main() {
             retenirvalue = sqlite3_step(stmt);
             if(retenirvalue == SQLITE_ROW)
             {
-             //la ligne contient des données
-             //sqlite3_column_double : renvoie un double pas un pointeur vers un double
+             //la ligne contient des données:
+             //sqlite3_column_double : renvoie un double, pas un pointeur vers un double
              numDocsAvailable[num_lignes] = sqlite3_column_double(stmt,4);
              printf("numDocsAvailable :%d  \t\t | ", numDocsAvailable[num_lignes]);
 
@@ -138,7 +148,6 @@ int main() {
 
              num_bikes_available_mechanical[num_lignes] = sqlite3_column_double(stmt,7);
              printf("num_bikes_available_mechanical :%d ", num_bikes_available_mechanical[num_lignes]);
-             //printf("numero de ligne   : %d  \t\t |", num_lignes);
 
              printf("\n");
              printf("num_lignes  : %d \n",num_lignes);
@@ -146,13 +155,12 @@ int main() {
             }
             else if(retenirvalue == SQLITE_DONE)
             {
-                //   Plus de données
                 printf("Fin de la table\n");
                 break;
             }
             else
             {
-                //   Erreur
+                //renvoyer une erreur
                 printf("Erreur lors de l'accès aux données\n");
                 return -1;
             }
@@ -160,50 +168,39 @@ int main() {
         //fermeture de db pour libérer de la mémoire
         sqlite3_close(db);
 
-//************************GD************************************
-    //image1: num docs pour station 13007
-    /* Declare the image */
+//**************création des images dans GD************************************
+    /*image1: nombre de bornettes disponibles au station Le Brun Gobelin (station_id = 13007*/
+    /* déclarer l'image */
     gdImagePtr im;
-    /* Declare output files */
+
+    /* déclarer les fichiers de sortie */
     FILE *pngout, *jpegout;
-    /* Declare color indexes */
+
+    /* déclarer l'index des couleurs */
     int cyan, navy, red, green, black, white, yellow;
+
+    /* définir les fonts à utiliser */
+    char *medium = "/usr/share/fonts/truetype/lato/Lato-Regular.ttf";
+    char *italic = "/usr/share/fonts/truetype/lato/Lato-LightItalic.ttf";
+    char *regular = "/usr/share/fonts/truetype/lato/Lato-Medium.ttf ";
+
+    /* définir la largeur et la hauteur de l'image */
     int abscisse_x=1800;
     int ordonnee_y=900;
-
-
-    /* Allocate the image: 64 pixels across by 64 pixels tall */
-    //im = gdImageCreate(1000, 1000);
     im = gdImageCreate(abscisse_x, ordonnee_y);
 
-    //im = gdImageCreate(hauteur,Nbr_lignes);
-    /* Allocate the color black (red, green and blue all minimum).
-       Since this is the first color in a new image, it will be the background color. */
+    /* définir la couleur noire comme background image (première couleur définie sert de backgound color) */
     black = gdImageColorAllocate(im, 00, 00, 00);
 
-    /* Allocate the color white (red, green and blue all maximum). */
+    /* définir les couleurs utilisées pour les images */
     cyan = gdImageColorAllocate(im, 0, 255, 255);
     navy = gdImageColorAllocate(im, 0, 0, 102);
     red = gdImageColorAllocate(im, 255, 0, 0);
     green = gdImageColorAllocate(im, 0, 255, 0);
     white = gdImageColorAllocate(im, 255, 255, 255);
     yellow = gdImageColorAllocate(im, 255, 255, 0);
-    /* Draw a line from the upper left to the lower right,
-    using white color index. */
 
-    //gdImageFilledRectangle(im, 250, 250, 500, 500, red);
-    int sommes = 0;
-    for(int i = 0; i<Nbr_lignes; i++){
-        sommes = sommes + num_bikes_available[i];
-        printf("%d \n", num_bikes_available[i]);
-
-    }
-
-
-    printf("%s \n", last_reported[0]);
-
-
-
+    /* tracer les graphes */
     int X = 100;
     int eppaisseur = 25;
     int espacement = 5;
@@ -212,49 +209,53 @@ int main() {
         gdImageFilledRectangle(im, X, 500, X+eppaisseur, 500-(5*numDocsAvailable[k]), red);
         gdImageStringUp(im, gdFontGetLarge(), X, 705, last_reported[k], white);
         X = X + eppaisseur + espacement;
-
     }
+
+    /* tracer les axes abscisse et ordonnée */
     gdImageLine(im, 100, 500, 100, 100, white);
     gdImageLine(im, 100, 500, 1550, 500, white);
 
-    gdImageString(im, gdFontGetLarge(), 700, 100, name[0], white );
-    gdImageString(im, gdFontGetLarge(), 700, 200, "Nombre de bornettes disponible", white );
-    gdImageString(im, gdFontGetLarge(), 50, 100, "Nombre bornettes", white );
-    gdImageString(im, gdFontGetLarge(), 75, 200, "50", white );
-    gdImageString(im, gdFontGetLarge(), 75, 350, "25", white );
+    /* ajouter les titres et graduation */
+    gdImageStringFT(im,NULL,yellow,medium,18,0,700, 150, name[0]);
+    gdImageStringFT(im,NULL,white,medium,18,0,650, 100, "Nombre de bornettes disponible");
+    gdImageStringFT(im,NULL,white,italic,12,0,75, 200, "50");
+    gdImageStringFT(im,NULL,white,italic,12,0,75, 350, "25");
 
-
-
-
-    /* Open a file for writing. "wb" means "write binary", important under MSDOS, harmless under Unix. */
+    /* ouvrir un fichier pour l'écriture: "wb" (write binary) */
     pngout = fopen("velib.png", "wb");
-    /* Do the same for a JPEG-format file. */
+
+    /* ouvrir un fichier pour l'écriture: "wb" un fichier au format JPEG */
     jpegout = fopen("velib.jpg", "wb");
-    /* Output the image to the disk file in PNG format. */
+
+    /* exporter l'image vers le fichier disque au format PNG */
     gdImagePng(im, pngout);
-    /* Output the same image in JPEG format, using the default JPEG quality setting. */
+
+    /* exporter la même image au format JPEG, en utilisant le paramètre de qualité JPEG par défaut. */
     gdImageJpeg(im, jpegout, -1);
-    /* Close the files. */
+
+    /* fermer le fichier */
     fclose(pngout);
     fclose(jpegout);
-    /* Destroy the image in memory. */
+
+    /* détruit l'image dans la mémoire */
     gdImageDestroy(im);
 
-    //image2: nombre de velo dispo station 13007: ebike - mecanique
-    /* Declare the image */
+    /* image2: nombre de velo dispo station 13007: ebike - mecanique */
+    /* déclarer l'image */
     gdImagePtr im2;
-    /* Declare output files */
+
+    /* déclarer les fichiers de sortie */
     FILE *pngout2, *jpegout2;
-    /* Declare color indexes */
+
+    /* déclarer l'index des couleurs */
     int cyan2, navy2, red2, green2, black2, white2, yellow2;
+
+    /* définir la largeur et la hauteur de l'image */
     int abscisse2_x=1800;
     int ordonnee2_y=900;
-
-
-    /* Allocate the image: 64 pixels across by 64 pixels tall */
     im2 = gdImageCreate(abscisse2_x, ordonnee2_y);
 
-
+    /* définir les couleurs utilisées pour les images */
     black2 = gdImageColorAllocate(im2, 00, 00, 00);
     cyan2 = gdImageColorAllocate(im2, 0, 255, 255);
     navy2 = gdImageColorAllocate(im2, 0, 0, 102);
@@ -276,35 +277,124 @@ int main() {
     gdImageLine(im2, 100, 500, 100, 100, white2);
     gdImageLine(im2, 100, 500, 1550, 500, white2);
 
-    gdImageString(im2, gdFontGetLarge(), 700, 100, name[0], white2 );
-    gdImageString(im2, gdFontGetLarge(), 700, 200, "Nombre de vélos disponibles", white );
-    gdImageString(im2, gdFontGetLarge(), 50, 100, "ordo1", white2 );
-    gdImageString(im2, gdFontGetLarge(), 75, 250, "50", white2 );
-    gdImageString(im2, gdFontGetLarge(), 75, 300, "40", white2 );
-    gdImageString(im2, gdFontGetLarge(), 75, 350, "30", white2 );
-    gdImageString(im2, gdFontGetLarge(), 75, 400, "20", white2 );
-    gdImageString(im2, gdFontGetLarge(), 75, 450, "10", white2 );
+    gdImageStringFT(im2,NULL,white2,medium,18,0,700, 100, "Nombre de vélos disponibles");
+    gdImageStringFT(im2,NULL,yellow2,medium,18,0,750, 200, name[0]);
+    gdImageStringFT(im2,NULL,white2,italic,12,0,75, 250, "50");
+    gdImageStringFT(im2,NULL,white2,italic,12,0,75, 300, "40");
+    gdImageStringFT(im2,NULL,white2,italic,12,0,75, 350, "30");
+    gdImageStringFT(im2,NULL,white2,italic,12,0,75, 400, "20");
+    gdImageStringFT(im2,NULL,white2,italic,12,0,75, 450, "10");
 
-    gdImageLine(im2, 100, 500, 1350, 500, yellow2);
-
-
+    /* déclarer l'image */
+    /* insérer icon de velib */
     gdImagePtr im3;
     FILE *in;
     in = fopen("/home/ajc/projetfinal/icon.png", "rb");
     im3 = gdImageCreateFromPng(in);
     gdImageCopyResized(im2, im3,150,200,0,0,300,140,180,140);
-    /* Open a file for writing. "wb" means "write binary", important under MSDOS, harmless under Unix. */
+
+    /* ouvrir un fichier pour l'écriture: "wb" (write binary) */
     pngout2 = fopen("velib2.png", "wb");
-    /* Do the same for a JPEG-format file. */
+
+    /* ouvrir un fichier pour l'écriture: "wb" un fichier au format JPEG */
     jpegout2 = fopen("velib2.jpg", "wb");
-    /* Output the image to the disk file in PNG format. */
+
+    /* exporter l'image vers le fichier disque au format PNG */
     gdImagePng(im2, pngout2);
-    /* Output the same image in JPEG format, using the default JPEG quality setting. */
+
+    /* exporter la même image au format JPEG, en utilisant le paramètre de qualité JPEG par défaut. */
     gdImageJpeg(im2, jpegout2, -1);
-    /* Close the files. */
+
+    /* fermer le fichier */
     fclose(pngout2);
     fclose(jpegout2);
-    /* Destroy the image in memory. */
+
+    /* détruit l'image dans la mémoire */
     gdImageDestroy(im2);
+
+    /* image3: répartition part vélo: vélo mécanique et ebike */
+    /* déclarer l'image */
+    gdImagePtr im4;
+
+    /* déclarer les fichiers de sortie */
+    FILE *pngout4, *jpegout4;
+
+    /* déclarer l'index des couleurs */
+    int cyan4, navy4, red4, green4, black4, white4, yellow4;
+
+    /* définir la largeur et la hauteur de l'image */
+    int abs_x=1000;
+    int ord_y=1000;
+    im4 = gdImageCreate(abs_x, ord_y);
+
+    /* définir la couleur noire comme background image (première couleur définie sert de backgound color)*/
+    black4 = gdImageColorAllocate(im4, 00, 00, 00);
+
+    /* définir les couleurs utilisées pour les images */
+    cyan4 = gdImageColorAllocate(im4, 0, 255, 255);
+    navy4 = gdImageColorAllocate(im4, 0, 0, 102);
+    red4 = gdImageColorAllocate(im4, 255, 0, 0);
+    green4 = gdImageColorAllocate(im4, 0, 255, 0);
+    white4 = gdImageColorAllocate(im4, 255, 255, 255);
+    yellow4 = gdImageColorAllocate(im4, 255, 255, 0);
+
+    /* tracer les graphes */
+    int c_x = (abs_x/2);
+    int c_y = (ord_y/2);
+    int w = 420;
+    int h = 360;
+
+    gdImageFilledArc(im4, c_x, c_y, w, h, 0,((num_bikes_available_ebike[Nbr_lignes-1]*360)/num_bikes_available[Nbr_lignes-1]), yellow, gdArc);
+    gdImageFilledArc(im4, c_x, c_y, w, h, (0+((num_bikes_available_ebike[Nbr_lignes-1]*360)/num_bikes_available[Nbr_lignes-1])),((num_bikes_available_ebike[Nbr_lignes-1]*360)/num_bikes_available[Nbr_lignes-1]) + ((num_bikes_available_mechanical[Nbr_lignes-1]*360)/num_bikes_available[Nbr_lignes-1]), red, gdArc);
+
+    int mecanical = round(((num_bikes_available_mechanical[Nbr_lignes-1]*100)/(num_bikes_available_ebike[Nbr_lignes-1]+num_bikes_available_mechanical[Nbr_lignes-1])));
+    char str[40]; //spécifie emplacement mémoire dans lequel stocker la nouvelle valeur
+    sprintf(str, "%d",mecanical);
+    gdImageStringFT(im4,NULL,red,medium,14,0,750, 550, strcat(str," % de vélo mecanique"));
+    int ebike = round(((num_bikes_available_ebike[Nbr_lignes-1]*100)/(num_bikes_available_ebike[Nbr_lignes-1]+num_bikes_available_mechanical[Nbr_lignes-1])));
+    char str1[40]; //spécifie emplacement mémoire dans lequel stocker la nouvelle valeur
+    sprintf(str1, "%d",ebike);
+
+    /* récupérer la date au format YYYY-MM-DD */
+    char date[11];
+    for(int i=0; i<10; i++){
+        date[i] = last_reported[Nbr_lignes-1][i];
+    }
+    date[10] = 0; //fin de string
+    printf("%s \n", date);
+
+    /* récupérer l'heure au format HH-mm */
+    char heure[6];
+    for(int i=0; i<5; i++){
+        heure[i] = last_reported[Nbr_lignes-1][i+11];
+    }
+    heure[5] = 0; //fin de string
+    printf("%s \n", heure);
+
+    printf("%s \n", last_reported[0]);
+
+    gdImageStringFT(im4,NULL,yellow,medium,14,0,750, 600, strcat(str1," % de vélo ebike"));
+    gdImageString(im4, gdFontGetGiant(), 460, 750, heure, white);
+    gdImageString(im4, gdFontGetGiant(), 450, 250, date, white);
+    gdImageStringFT(im4,NULL,green,italic,18,0,300, 200, "REPARTITION DES VELOS DISPONIBLES");
+
+    /* ouvrir un fichier pour l'écriture: "wb" (write binary) */
+    pngout4 = fopen("velib3.png", "wb");
+
+    /* ouvrir un fichier pour l'écriture: "wb" un fichier au format JPEG */
+    jpegout4 = fopen("velib3.jpg", "wb");
+
+    /* exporter l'image vers le fichier disque au format PNG */
+    gdImagePng(im4, pngout4);
+
+    /* exporter la même image au format JPEG, en utilisant le paramètre de qualité JPEG par défaut. */
+    gdImageJpeg(im4, jpegout4, -1);
+
+    /* fermer le fichier */
+    fclose(pngout4);
+    fclose(jpegout4);
+
+    /* détruit l'image dans la mémoire */
+    gdImageDestroy(im4);
 }
 
