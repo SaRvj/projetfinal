@@ -174,7 +174,7 @@ int main() {
     gdImagePtr im;
 
     /* déclarer les fichiers de sortie */
-    FILE *pngout, *jpegout;
+    FILE *pngout;
 
     /* déclarer l'index des couleurs */
     int cyan, navy, red, green, black, white, yellow;
@@ -222,20 +222,13 @@ int main() {
     gdImageStringFT(im,NULL,white,italic,12,0,75, 350, "25");
 
     /* ouvrir un fichier pour l'écriture: "wb" (write binary) */
-    pngout = fopen("velib.png", "wb");
-
-    /* ouvrir un fichier pour l'écriture: "wb" un fichier au format JPEG */
-    jpegout = fopen("velib.jpg", "wb");
+    pngout = fopen("/var/www/html/graphes/velib.png", "wb");
 
     /* exporter l'image vers le fichier disque au format PNG */
     gdImagePng(im, pngout);
 
-    /* exporter la même image au format JPEG, en utilisant le paramètre de qualité JPEG par défaut. */
-    gdImageJpeg(im, jpegout, -1);
-
     /* fermer le fichier */
     fclose(pngout);
-    fclose(jpegout);
 
     /* détruit l'image dans la mémoire */
     gdImageDestroy(im);
@@ -245,7 +238,7 @@ int main() {
     gdImagePtr im2;
 
     /* déclarer les fichiers de sortie */
-    FILE *pngout2, *jpegout2;
+    FILE *pngout2;
 
     /* déclarer l'index des couleurs */
     int cyan2, navy2, red2, green2, black2, white2, yellow2;
@@ -294,20 +287,14 @@ int main() {
     gdImageCopyResized(im2, im3,150,200,0,0,300,140,180,140);
 
     /* ouvrir un fichier pour l'écriture: "wb" (write binary) */
-    pngout2 = fopen("velib2.png", "wb");
-
-    /* ouvrir un fichier pour l'écriture: "wb" un fichier au format JPEG */
-    jpegout2 = fopen("velib2.jpg", "wb");
+    pngout2 = fopen("/var/www/html/graphes/velib2.png", "wb");
 
     /* exporter l'image vers le fichier disque au format PNG */
     gdImagePng(im2, pngout2);
 
-    /* exporter la même image au format JPEG, en utilisant le paramètre de qualité JPEG par défaut. */
-    gdImageJpeg(im2, jpegout2, -1);
 
     /* fermer le fichier */
     fclose(pngout2);
-    fclose(jpegout2);
 
     /* détruit l'image dans la mémoire */
     gdImageDestroy(im2);
@@ -317,7 +304,7 @@ int main() {
     gdImagePtr im4;
 
     /* déclarer les fichiers de sortie */
-    FILE *pngout4, *jpegout4;
+    FILE *pngout4;
 
     /* déclarer l'index des couleurs */
     int cyan4, navy4, red4, green4, black4, white4, yellow4;
@@ -379,20 +366,13 @@ int main() {
     gdImageStringFT(im4,NULL,green,italic,18,0,300, 200, "REPARTITION DES VELOS DISPONIBLES");
 
     /* ouvrir un fichier pour l'écriture: "wb" (write binary) */
-    pngout4 = fopen("velib3.png", "wb");
-
-    /* ouvrir un fichier pour l'écriture: "wb" un fichier au format JPEG */
-    jpegout4 = fopen("velib3.jpg", "wb");
+    pngout4 = fopen("/var/www/html/graphes/velib3.png", "wb");
 
     /* exporter l'image vers le fichier disque au format PNG */
     gdImagePng(im4, pngout4);
 
-    /* exporter la même image au format JPEG, en utilisant le paramètre de qualité JPEG par défaut. */
-    gdImageJpeg(im4, jpegout4, -1);
-
     /* fermer le fichier */
     fclose(pngout4);
-    fclose(jpegout4);
 
     /* détruit l'image dans la mémoire */
     gdImageDestroy(im4);
