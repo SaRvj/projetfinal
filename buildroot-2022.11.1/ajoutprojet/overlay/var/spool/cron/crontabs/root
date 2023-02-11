@@ -1,1 +1,1 @@
-0 */1 * * * ./home/satrana/database.py
+0 */1 * * * ./usr/bin/partie_velib/database.py
