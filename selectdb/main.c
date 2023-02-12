@@ -220,6 +220,9 @@ int main() {
     gdImageStringFT(im,NULL,white,medium,18,0,650, 100, "Nombre de bornettes disponible");
     gdImageStringFT(im,NULL,white,italic,12,0,75, 200, "50");
     gdImageStringFT(im,NULL,white,italic,12,0,75, 350, "25");
+    
+    gdImageFilledRectangle(im, 1250, 85, 1200, 100, red);
+    gdImageStringFT(im,NULL,red,medium,12,0,1260,100, "Nombre de bornettes disponible par heure");
 
     /* ouvrir un fichier pour l'écriture: "wb" (write binary) */
     pngout = fopen("velib.png", "wb");
@@ -277,6 +280,11 @@ int main() {
     gdImageStringFT(im2,NULL,white2,italic,12,0,75, 350, "30");
     gdImageStringFT(im2,NULL,white2,italic,12,0,75, 400, "20");
     gdImageStringFT(im2,NULL,white2,italic,12,0,75, 450, "10");
+    
+    gdImageFilledRectangle(im2, 1200, 50, 1220, 75, cyan2);
+    gdImageStringFT(im2,NULL,cyan2,medium,12,0,1230,75, "Nombre de vélos électriques disponibles");
+    gdImageFilledRectangle(im2, 1200, 75, 1220, 100, green2);
+    gdImageStringFT(im2,NULL,green2,medium,12,0,1230,100, "Nombre de vélos mécaniques disponibles");
 
     /* déclarer l'image */
     /* insérer icon de velib */

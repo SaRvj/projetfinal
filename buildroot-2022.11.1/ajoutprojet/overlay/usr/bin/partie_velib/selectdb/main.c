@@ -220,9 +220,12 @@ int main() {
     gdImageStringFT(im,NULL,white,medium,18,0,650, 100, "Nombre de bornettes disponible");
     gdImageStringFT(im,NULL,white,italic,12,0,75, 200, "50");
     gdImageStringFT(im,NULL,white,italic,12,0,75, 350, "25");
+    
+    gdImageFilledRectangle(im, 1250, 85, 1200, 100, red);
+    gdImageStringFT(im,NULL,red,medium,12,0,1260,100, "Nombre de bornettes disponible par heure");
 
     /* ouvrir un fichier pour l'écriture: "wb" (write binary) */
-    pngout = fopen("/var/www/html/graphes/velib.png", "wb");
+    pngout = fopen("/var/www/html/velib.png", "wb");
 
     /* exporter l'image vers le fichier disque au format PNG */
     gdImagePng(im, pngout);
@@ -277,21 +280,26 @@ int main() {
     gdImageStringFT(im2,NULL,white2,italic,12,0,75, 350, "30");
     gdImageStringFT(im2,NULL,white2,italic,12,0,75, 400, "20");
     gdImageStringFT(im2,NULL,white2,italic,12,0,75, 450, "10");
+    
+    gdImageFilledRectangle(im2, 1200, 50, 1220, 75, cyan2);
+    gdImageStringFT(im2,NULL,cyan2,medium,12,0,1230,75, "Nombre de vélos électriques disponibles");
+    gdImageFilledRectangle(im2, 1200, 75, 1220, 100, green2);
+    gdImageStringFT(im2,NULL,green2,medium,12,0,1230,100, "Nombre de vélos mécaniques disponibles");
 
     /* déclarer l'image */
     /* insérer icon de velib */
     gdImagePtr im3;
     FILE *in;
-    in = fopen("/var/www/html/graphes/icon.png", "rb");
+    in = fopen("/var/www/html/icon.png", "rb");
     im3 = gdImageCreateFromPng(in);
     gdImageCopyResized(im2, im3,150,200,0,0,300,140,180,140);
 
     /* ouvrir un fichier pour l'écriture: "wb" (write binary) */
-    pngout2 = fopen("/var/www/html/graphes/velib2.png", "wb");
+    pngout2 = fopen("/var/www/html/velib2.png", "wb");
+
 
     /* exporter l'image vers le fichier disque au format PNG */
     gdImagePng(im2, pngout2);
-
 
     /* fermer le fichier */
     fclose(pngout2);
@@ -366,14 +374,14 @@ int main() {
     gdImageStringFT(im4,NULL,green,italic,18,0,300, 200, "REPARTITION DES VELOS DISPONIBLES");
 
     /* ouvrir un fichier pour l'écriture: "wb" (write binary) */
-    pngout4 = fopen("/var/www/html/graphes/velib3.png", "wb");
+    pngout4 = fopen("/var/www/html/velib3.png", "wb");
 
     /* exporter l'image vers le fichier disque au format PNG */
     gdImagePng(im4, pngout4);
 
     /* fermer le fichier */
     fclose(pngout4);
-
+  
     /* détruit l'image dans la mémoire */
     gdImageDestroy(im4);
 }

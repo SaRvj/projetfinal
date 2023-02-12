@@ -3,4 +3,3 @@
 
 loadkmap < /etc/azerty.kmap
 touch /tmp/keyboard.txt
-echo"FrenchKeyboard" > /tmp/keyboard.txt
