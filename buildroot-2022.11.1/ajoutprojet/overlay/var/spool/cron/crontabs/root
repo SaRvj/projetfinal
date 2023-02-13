@@ -1,2 +1,0 @@
-0 */1 * * * /usr/bin/partie_velib/database.py
-*/1 * * * * /usr/bin/partie_velib/selectdb/myprog
