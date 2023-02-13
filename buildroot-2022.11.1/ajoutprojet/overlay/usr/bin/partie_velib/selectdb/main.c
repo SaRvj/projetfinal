@@ -213,16 +213,16 @@ int main() {
 
     /* tracer les axes abscisse et ordonnée */
     gdImageLine(im, 100, 500, 100, 100, white);
-    gdImageLine(im, 100, 500, 1550, 500, white);
+    gdImageLine(im, 100, 500, 1700, 500, white);
 
     /* ajouter les titres et graduation */
     gdImageStringFT(im,NULL,yellow,medium,18,0,700, 150, name[0]);
-    gdImageStringFT(im,NULL,white,medium,18,0,650, 100, "Nombre de bornettes disponible");
+    gdImageStringFT(im,NULL,white,medium,18,0,650, 100, "Nombre de bornettes disponibles");
     gdImageStringFT(im,NULL,white,italic,12,0,75, 200, "50");
     gdImageStringFT(im,NULL,white,italic,12,0,75, 350, "25");
     
     gdImageFilledRectangle(im, 1250, 85, 1200, 100, red);
-    gdImageStringFT(im,NULL,red,medium,12,0,1260,100, "Nombre de bornettes disponible par heure");
+    gdImageStringFT(im,NULL,red,medium,12,0,1260,100, "Nombre de bornettes disponibles par heure");
 
     /* ouvrir un fichier pour l'écriture: "wb" (write binary) */
     pngout = fopen("/var/www/html/velib.png", "wb");
@@ -271,7 +271,7 @@ int main() {
 
     }
     gdImageLine(im2, 100, 500, 100, 100, white2);
-    gdImageLine(im2, 100, 500, 1550, 500, white2);
+    gdImageLine(im2, 100, 500, 1700, 500, white2);
 
     gdImageStringFT(im2,NULL,white2,medium,18,0,700, 100, "Nombre de vélos disponibles");
     gdImageStringFT(im2,NULL,yellow2,medium,18,0,750, 200, name[0]);
@@ -345,7 +345,7 @@ int main() {
     int mecanical = round(((num_bikes_available_mechanical[Nbr_lignes-1]*100)/(num_bikes_available_ebike[Nbr_lignes-1]+num_bikes_available_mechanical[Nbr_lignes-1])));
     char str[40]; //spécifie emplacement mémoire dans lequel stocker la nouvelle valeur
     sprintf(str, "%d",mecanical);
-    gdImageStringFT(im4,NULL,red,medium,14,0,750, 550, strcat(str," % de vélo mecanique"));
+    gdImageStringFT(im4,NULL,red,medium,14,0,750, 550, strcat(str," % de vélos mecaniques"));
     int ebike = round(((num_bikes_available_ebike[Nbr_lignes-1]*100)/(num_bikes_available_ebike[Nbr_lignes-1]+num_bikes_available_mechanical[Nbr_lignes-1])));
     char str1[40]; //spécifie emplacement mémoire dans lequel stocker la nouvelle valeur
     sprintf(str1, "%d",ebike);
@@ -368,7 +368,7 @@ int main() {
 
     printf("%s \n", last_reported[0]);
 
-    gdImageStringFT(im4,NULL,yellow,medium,14,0,750, 600, strcat(str1," % de vélo ebike"));
+    gdImageStringFT(im4,NULL,yellow,medium,14,0,750, 600, strcat(str1," % de vélos ebikes"));
     gdImageString(im4, gdFontGetGiant(), 460, 750, heure, white);
     gdImageString(im4, gdFontGetGiant(), 450, 250, date, white);
     gdImageStringFT(im4,NULL,green,italic,18,0,300, 200, "REPARTITION DES VELOS DISPONIBLES");

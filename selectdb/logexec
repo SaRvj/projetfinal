@@ -1,0 +1,302 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9 
+name| capacity| is_renting| is_returning| numDocsAvailable| num_bikes_available| num_bikes_available_ebike| num_bikes_available_mechanical| last_reported| 
+Le Brun - Gobelins| 48| OUI| OUI| 35| 12| 4| 8| 2023-01-30T21:18:11+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 43| 4| 2| 2| 2023-01-30T22:20:53+00:00| 
+Le Brun - Gobelins| 48| NON| NON| 47| 0| 0| 0| 2023-01-31T09:20:46+00:00| 
+Le Brun - Gobelins| 48| NON| NON| 47| 0| 0| 0| 2023-01-31T10:20:45+00:00| 
+Le Brun - Gobelins| 48| NON| NON| 47| 0| 0| 0| 2023-01-31T11:18:39+00:00| 
+Le Brun - Gobelins| 48| NON| NON| 47| 0| 0| 0| 2023-01-31T16:19:29+00:00| 
+Le Brun - Gobelins| 48| NON| NON| 47| 0| 0| 0| 2023-01-31T20:20:04+00:00| 
+Le Brun - Gobelins| 48| NON| NON| 47| 0| 0| 0| 2023-01-31T22:20:22+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 36| 11| 5| 6| 2023-02-01T02:20:57+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 36| 11| 2| 9| 2023-02-01T06:21:30+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 35| 12| 8| 4| 2023-02-01T08:24:27+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 36| 11| 3| 8| 2023-02-01T10:23:31+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 36| 11| 2| 9| 2023-02-01T16:25:53+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 27| 19| 5| 14| 2023-02-01T18:26:59+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 16| 30| 8| 22| 2023-02-01T20:27:12+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 21| 25| 1| 24| 2023-02-02T10:26:55+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 13| 33| 9| 24| 2023-02-02T12:26:34+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 14| 32| 9| 23| 2023-02-02T14:26:50+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 20| 26| 2| 24| 2023-02-02T16:29:01+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 4| 43| 2| 41| 2023-02-03T12:31:27+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 16| 31| 4| 27| 2023-02-03T16:31:07+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 8| 39| 5| 34| 2023-02-04T06:32:26+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 18| 29| 6| 23| 2023-02-04T12:32:51+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 18| 29| 6| 23| 2023-02-04T20:34:54+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 14| 33| 9| 24| 2023-02-04T22:35:09+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 14| 31| 6| 25| 2023-02-05T10:36:44+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 24| 21| 2| 19| 2023-02-05T14:37:19+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 21| 24| 6| 18| 2023-02-05T16:37:35+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 10| 35| 13| 22| 2023-02-05T20:37:06+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 5| 40| 13| 27| 2023-02-05T22:37:24+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 27| 19| 1| 18| 2023-02-06T08:38:08+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 28| 19| 4| 15| 2023-02-06T10:37:53+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 32| 15| 2| 13| 2023-02-06T12:36:29+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 36| 11| 2| 9| 2023-02-06T14:39:21+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 30| 14| 7| 7| 2023-02-06T18:38:45+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 16| 28| 6| 22| 2023-02-06T22:39:39+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 24| 21| 2| 19| 2023-02-07T06:40:51+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 38| 7| 1| 6| 2023-02-07T08:39:49+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 43| 1| 1| 0| 2023-02-07T14:42:15+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 25| 22| 4| 18| 2023-02-07T22:43:22+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 43| 5| 2| 3| 2023-02-08T12:42:20+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 41| 6| 3| 3| 2023-02-08T16:45:33+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 36| 11| 6| 5| 2023-02-08T18:43:42+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 27| 20| 5| 15| 2023-02-08T20:44:06+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 20| 27| 4| 23| 2023-02-08T21:44:08+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 12| 35| 5| 30| 2023-02-09T06:37:58+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 15| 32| 4| 28| 2023-02-09T08:38:46+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 42| 3| 2| 1| 2023-02-10T15:40:47+00:00| 
+Le Brun - Gobelins| 48| OUI| OUI| 43| 3| 3| 0| 2023-02-13T09:43:57+00:00| 
+Fin de la table
+Nombre de lignes de la base velib.bd : 49 
+numDocsAvailable :35  		 | num_bikes_available :12 last_reported :2023-01-30T21:18:11+00:00 num_bikes_available_ebike :4 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :8 
+num_lignes  : 0 
+numDocsAvailable :43  		 | num_bikes_available :4 last_reported :2023-01-30T22:20:53+00:00 num_bikes_available_ebike :2 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :2 
+num_lignes  : 1 
+numDocsAvailable :47  		 | num_bikes_available :0 last_reported :2023-01-31T09:20:46+00:00 num_bikes_available_ebike :0 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :NON is_returning :NON num_bikes_available_mechanical :0 
+num_lignes  : 2 
+numDocsAvailable :47  		 | num_bikes_available :0 last_reported :2023-01-31T10:20:45+00:00 num_bikes_available_ebike :0 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :NON is_returning :NON num_bikes_available_mechanical :0 
+num_lignes  : 3 
+numDocsAvailable :47  		 | num_bikes_available :0 last_reported :2023-01-31T11:18:39+00:00 num_bikes_available_ebike :0 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :NON is_returning :NON num_bikes_available_mechanical :0 
+num_lignes  : 4 
+numDocsAvailable :47  		 | num_bikes_available :0 last_reported :2023-01-31T16:19:29+00:00 num_bikes_available_ebike :0 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :NON is_returning :NON num_bikes_available_mechanical :0 
+num_lignes  : 5 
+numDocsAvailable :47  		 | num_bikes_available :0 last_reported :2023-01-31T20:20:04+00:00 num_bikes_available_ebike :0 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :NON is_returning :NON num_bikes_available_mechanical :0 
+num_lignes  : 6 
+numDocsAvailable :47  		 | num_bikes_available :0 last_reported :2023-01-31T22:20:22+00:00 num_bikes_available_ebike :0 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :NON is_returning :NON num_bikes_available_mechanical :0 
+num_lignes  : 7 
+numDocsAvailable :36  		 | num_bikes_available :11 last_reported :2023-02-01T02:20:57+00:00 num_bikes_available_ebike :5 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :6 
+num_lignes  : 8 
+numDocsAvailable :36  		 | num_bikes_available :11 last_reported :2023-02-01T06:21:30+00:00 num_bikes_available_ebike :2 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :9 
+num_lignes  : 9 
+numDocsAvailable :35  		 | num_bikes_available :12 last_reported :2023-02-01T08:24:27+00:00 num_bikes_available_ebike :8 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :4 
+num_lignes  : 10 
+numDocsAvailable :36  		 | num_bikes_available :11 last_reported :2023-02-01T10:23:31+00:00 num_bikes_available_ebike :3 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :8 
+num_lignes  : 11 
+numDocsAvailable :36  		 | num_bikes_available :11 last_reported :2023-02-01T16:25:53+00:00 num_bikes_available_ebike :2 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :9 
+num_lignes  : 12 
+numDocsAvailable :27  		 | num_bikes_available :19 last_reported :2023-02-01T18:26:59+00:00 num_bikes_available_ebike :5 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :14 
+num_lignes  : 13 
+numDocsAvailable :16  		 | num_bikes_available :30 last_reported :2023-02-01T20:27:12+00:00 num_bikes_available_ebike :8 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :22 
+num_lignes  : 14 
+numDocsAvailable :21  		 | num_bikes_available :25 last_reported :2023-02-02T10:26:55+00:00 num_bikes_available_ebike :1 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :24 
+num_lignes  : 15 
+numDocsAvailable :13  		 | num_bikes_available :33 last_reported :2023-02-02T12:26:34+00:00 num_bikes_available_ebike :9 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :24 
+num_lignes  : 16 
+numDocsAvailable :14  		 | num_bikes_available :32 last_reported :2023-02-02T14:26:50+00:00 num_bikes_available_ebike :9 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :23 
+num_lignes  : 17 
+numDocsAvailable :20  		 | num_bikes_available :26 last_reported :2023-02-02T16:29:01+00:00 num_bikes_available_ebike :2 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :24 
+num_lignes  : 18 
+numDocsAvailable :4  		 | num_bikes_available :43 last_reported :2023-02-03T12:31:27+00:00 num_bikes_available_ebike :2 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :41 
+num_lignes  : 19 
+numDocsAvailable :16  		 | num_bikes_available :31 last_reported :2023-02-03T16:31:07+00:00 num_bikes_available_ebike :4 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :27 
+num_lignes  : 20 
+numDocsAvailable :8  		 | num_bikes_available :39 last_reported :2023-02-04T06:32:26+00:00 num_bikes_available_ebike :5 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :34 
+num_lignes  : 21 
+numDocsAvailable :18  		 | num_bikes_available :29 last_reported :2023-02-04T12:32:51+00:00 num_bikes_available_ebike :6 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :23 
+num_lignes  : 22 
+numDocsAvailable :18  		 | num_bikes_available :29 last_reported :2023-02-04T20:34:54+00:00 num_bikes_available_ebike :6 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :23 
+num_lignes  : 23 
+numDocsAvailable :14  		 | num_bikes_available :33 last_reported :2023-02-04T22:35:09+00:00 num_bikes_available_ebike :9 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :24 
+num_lignes  : 24 
+numDocsAvailable :14  		 | num_bikes_available :31 last_reported :2023-02-05T10:36:44+00:00 num_bikes_available_ebike :6 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :25 
+num_lignes  : 25 
+numDocsAvailable :24  		 | num_bikes_available :21 last_reported :2023-02-05T14:37:19+00:00 num_bikes_available_ebike :2 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :19 
+num_lignes  : 26 
+numDocsAvailable :21  		 | num_bikes_available :24 last_reported :2023-02-05T16:37:35+00:00 num_bikes_available_ebike :6 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :18 
+num_lignes  : 27 
+numDocsAvailable :10  		 | num_bikes_available :35 last_reported :2023-02-05T20:37:06+00:00 num_bikes_available_ebike :13 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :22 
+num_lignes  : 28 
+numDocsAvailable :5  		 | num_bikes_available :40 last_reported :2023-02-05T22:37:24+00:00 num_bikes_available_ebike :13 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :27 
+num_lignes  : 29 
+numDocsAvailable :27  		 | num_bikes_available :19 last_reported :2023-02-06T08:38:08+00:00 num_bikes_available_ebike :1 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :18 
+num_lignes  : 30 
+numDocsAvailable :28  		 | num_bikes_available :19 last_reported :2023-02-06T10:37:53+00:00 num_bikes_available_ebike :4 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :15 
+num_lignes  : 31 
+numDocsAvailable :32  		 | num_bikes_available :15 last_reported :2023-02-06T12:36:29+00:00 num_bikes_available_ebike :2 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :13 
+num_lignes  : 32 
+numDocsAvailable :36  		 | num_bikes_available :11 last_reported :2023-02-06T14:39:21+00:00 num_bikes_available_ebike :2 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :9 
+num_lignes  : 33 
+numDocsAvailable :30  		 | num_bikes_available :14 last_reported :2023-02-06T18:38:45+00:00 num_bikes_available_ebike :7 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :7 
+num_lignes  : 34 
+numDocsAvailable :16  		 | num_bikes_available :28 last_reported :2023-02-06T22:39:39+00:00 num_bikes_available_ebike :6 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :22 
+num_lignes  : 35 
+numDocsAvailable :24  		 | num_bikes_available :21 last_reported :2023-02-07T06:40:51+00:00 num_bikes_available_ebike :2 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :19 
+num_lignes  : 36 
+numDocsAvailable :38  		 | num_bikes_available :7 last_reported :2023-02-07T08:39:49+00:00 num_bikes_available_ebike :1 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :6 
+num_lignes  : 37 
+numDocsAvailable :43  		 | num_bikes_available :1 last_reported :2023-02-07T14:42:15+00:00 num_bikes_available_ebike :1 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :0 
+num_lignes  : 38 
+numDocsAvailable :25  		 | num_bikes_available :22 last_reported :2023-02-07T22:43:22+00:00 num_bikes_available_ebike :4 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :18 
+num_lignes  : 39 
+numDocsAvailable :43  		 | num_bikes_available :5 last_reported :2023-02-08T12:42:20+00:00 num_bikes_available_ebike :2 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :3 
+num_lignes  : 40 
+numDocsAvailable :41  		 | num_bikes_available :6 last_reported :2023-02-08T16:45:33+00:00 num_bikes_available_ebike :3 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :3 
+num_lignes  : 41 
+numDocsAvailable :36  		 | num_bikes_available :11 last_reported :2023-02-08T18:43:42+00:00 num_bikes_available_ebike :6 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :5 
+num_lignes  : 42 
+numDocsAvailable :27  		 | num_bikes_available :20 last_reported :2023-02-08T20:44:06+00:00 num_bikes_available_ebike :5 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :15 
+num_lignes  : 43 
+numDocsAvailable :20  		 | num_bikes_available :27 last_reported :2023-02-08T21:44:08+00:00 num_bikes_available_ebike :4 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :23 
+num_lignes  : 44 
+numDocsAvailable :12  		 | num_bikes_available :35 last_reported :2023-02-09T06:37:58+00:00 num_bikes_available_ebike :5 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :30 
+num_lignes  : 45 
+numDocsAvailable :15  		 | num_bikes_available :32 last_reported :2023-02-09T08:38:46+00:00 num_bikes_available_ebike :4 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :28 
+num_lignes  : 46 
+numDocsAvailable :42  		 | num_bikes_available :3 last_reported :2023-02-10T15:40:47+00:00 num_bikes_available_ebike :2 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :1 
+num_lignes  : 47 
+numDocsAvailable :43  		 | num_bikes_available :3 last_reported :2023-02-13T09:43:57+00:00 num_bikes_available_ebike :3 name :Le Brun - Gobelins 
+ 18 
+capacity :48 is_renting :OUI is_returning :OUI num_bikes_available_mechanical :0 
+num_lignes  : 48 
+Fin de la table
+2023-02-13 
+09:43 
+2023-01-30T21:18:11+00:00 
